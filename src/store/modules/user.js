@@ -1,18 +1,23 @@
-import { login } from '@/api/sys';
+import { login, getUserInfo } from '@/api/sys';
 import storage from '@/utils/storage';
 import { TOKEN } from '@/constant';
 import router from '@/router';
+import { setTimeStamp } from '@/utils/auth';
 
 export default {
   namespaced: true,
   state: () => ({
-    token: storage.get(TOKEN) || ''
+    token: storage.get(TOKEN) || '',
+    userInfo: {}
 
   }),
   mutations: {
     setToken (state, token) {
       state.token = token;
       storage.set(TOKEN, token);
+    },
+    setUserInfo (state, userInfo) {
+      state.userInfo = userInfo;
     }
   },
   actions: {
@@ -24,6 +29,8 @@ export default {
         login({ username, password }).then(res => {
           console.log(res);
           this.commit('user/setToken', res.data.token);
+          // 保存登录时间
+          setTimeStamp();
           router.push('/');
           // 跳转
           resolve(res);
@@ -31,6 +38,19 @@ export default {
           reject(e);
         });
       });
+    },
+    // 获取用户信息  权限
+    async getUserInfo (ctx, userInfo) {
+      const { data } = await getUserInfo();
+      this.commit('user/setUserInfo', data);
+      return data;
+    },
+    // 登出
+    logout () {
+      this.commit('user/setToken', '');
+      this.commit('user/setUserInfo', {});
+      storage.removeAll();
+      router.push('/login');
     }
   }
 };

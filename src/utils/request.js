@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { ElMessageBox as MessageBox, ElMessage as Message } from 'element-plus';
 import store from '@/store';
+import { isCheckTimeout } from '@/utils/auth';
 
 // create an axios instance
 const service = axios.create({
@@ -12,14 +13,17 @@ const service = axios.create({
 
 // request interceptor
 service.interceptors.request.use(
-  (config) => {
-    // do something before request is sent
+  config => {
     if (store.getters.token) {
-      // please modify it according to the actual situation
+      config.headers.Authorization = `${store.getters.token}`;
+      if (isCheckTimeout()) {
+        store.dispatch('user/logout');
+        return Promise.reject(new Error('登录超时-token失效'));
+      }
     }
     return config;
   },
-  (error) => {
+  error => {
     // do something with request error
     console.log(error); // for debug
     return Promise.reject(error);
