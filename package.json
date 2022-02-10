@@ -1,11 +1,11 @@
 {
-  "name": "z-admin",
+  "name": "vue3-admin",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development vue-cli-service serve",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --report",
     "lint": "vue-cli-service lint --fix",
     "lint:fix": "eslint --fix --ext .js,.vue src"
   },
@@ -13,7 +13,6 @@
     "axios": "^0.25.0",
     "core-js": "^3.6.5",
     "element-plus": "^1.0.2-beta.28",
-    "mockjs": "^1.1.0",
     "vue": "^3.2.8",
     "vue-router": "^4.0.11",
     "vuex": "^4.0.2"

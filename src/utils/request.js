@@ -32,6 +32,12 @@ service.interceptors.request.use(
 
 // response interceptor
 service.interceptors.response.use((response) => {
+  /*
+  * 状态码处理
+  *  token 失效
+  *  无权限
+  *  根据项目约定设置
+  */
   const res = response.data;
   if (res.code !== 200) {
     Message({
