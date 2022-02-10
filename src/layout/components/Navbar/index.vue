@@ -1,5 +1,8 @@
 <template>
   <div class="nav-bar">
+    <!--    -->
+    <hamburger class="hamburger-container"></hamburger>
+    <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
@@ -23,6 +26,8 @@
 
 </template>
 <script setup>
+import Hamburger from '@/components/hamburger';
+import Breadcrumb from '@/components/Breadcrumb';
 import { useStore } from 'vuex';
 const store = useStore();
 
@@ -37,7 +42,21 @@ const logout = () => {
     position: relative;
     background: #fff;
     box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+    .breadcrumb-container {
+      float: left;
+    }
   }
+  .hamburger-container {
+    line-height: 46px;
+    height: 100%;
+    float: left;
+    cursor: pointer;
+    transition: background 0.5s;
+    &:hover {
+      background: rgba(0, 0, 0, 0.06);
+    }
+  }
+
   .right-menu {
     display: flex;
     align-items: center;

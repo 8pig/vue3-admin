@@ -2,6 +2,7 @@
 <template>
   <!-- 一级 menu 菜单 -->
   <el-menu
+    :collapse="!$store.getters.sidebarOpened"
     :uniqueOpened="true"
     :default-active="activeMenu"
     :background-color="$store.getters.cssVal.menuBg"
@@ -26,6 +27,7 @@ import SidebarItem from './SidebarItem';
 import { computed } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import { filterRouters, generateMenus } from '@/utils/route';
+import { useStore } from 'vuex';
 
 const router = useRouter();
 const routes = computed(() => {
@@ -40,6 +42,7 @@ const activeMenu = computed(() => {
   const { path } = route;
   return path;
 });
+console.log(useStore().state.app);
 
 
 </script>
