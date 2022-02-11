@@ -7,10 +7,10 @@
           <div class="cont_info_log_sign_up">
             <div class="col_md_login">
               <div class="cont_ba_opcitiy">
-                <h2>LOGIN</h2>
+                <h2>{{$t('msg.login.title')}}</h2>
                 <p></p>
                 <button class="btn_login" @click="cambiar_login()">
-                  LOGIN
+                  {{$t('msg.login.loginBtn')}}
                 </button>
               </div>
             </div>

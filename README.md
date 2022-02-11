@@ -12,6 +12,7 @@
 3. axios
 4. vuex
 5. vue-router
+6. scss
 
 ### 开发
 
