@@ -3,15 +3,15 @@
 
 </template>
 
-<script>
+<script setup>
+import { useStore } from 'vuex';
+import { generateNewStyle, writeNewStyle } from '@/utils/theme';
 
+const store = useStore();
+generateNewStyle(store.getters.mainColor).then(res => {
+  writeNewStyle(res);
+});
 
-export default {
-  name: 'App',
-  components: {
-
-  }
-};
 </script>
 
 <style>

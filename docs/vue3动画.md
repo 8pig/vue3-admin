@@ -13,7 +13,7 @@
    <template>
      <el-breadcrumb class="breadcrumb" separator="/">
        <transition-group name="breadcrumb">
-         ...
+         .. .
        </transition-group>
      </el-breadcrumb>
    </template>
