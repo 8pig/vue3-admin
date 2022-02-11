@@ -1,4 +1,6 @@
-import variables from '@/styles/variables.scss';
+import { generateColors } from '@/utils/theme';
+import storage from '@/utils/storage';
+import { MAIN_COLOR } from '@/constant';
 
 /* 快捷访问 */
 const getters = {
@@ -7,9 +9,13 @@ const getters = {
   hasUserInfo: state => { // true 表示已有用户信息
     return JSON.stringify(state.user.userInfo) !== `{}`;
   },
-  cssVal: state => variables,
+  cssVal: state => ({
+    ...state.theme.variables,
+    ...generateColors(storage.get(MAIN_COLOR))
+  }),
   sidebarOpened: state => state.app.sidebarOpened,
-  language: state => state.app.language
+  language: state => state.app.language,
+  mainColor: state => state.theme.mainColor
 };
 
 export default getters;

@@ -4,7 +4,8 @@
     <hamburger class="hamburger-container"></hamburger>
     <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
-      <lang-select class="right-menu-item hover-effect" ></lang-select>
+      <themeselect class="right-menu-item hover-effect" />
+      <lang-select class="right-menu-item hover-effect"></lang-select>
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <el-avatar shape="square" :size="40" :src="$store.getters.userInfo.avatar"></el-avatar>
@@ -27,6 +28,7 @@
 
 </template>
 <script setup>
+import Themeselect from '@/components/Themeselect';
 import Hamburger from '@/components/hamburger';
 import Breadcrumb from '@/components/Breadcrumb';
 import LangSelect from '@/components/LangSelect';

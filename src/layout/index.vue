@@ -7,7 +7,7 @@
     <sidebar
       id="guide-sidebar"
       class="sidebar-container"
-      :style="{ backgroundColor: variables.menuBg }"
+      :style="{ backgroundColor: $store.getters.cssVal.menuBg }"
     />
     <div class="main-container">
       <div class="fixed-header">
@@ -24,8 +24,7 @@
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import AppMain from './components/AppMain';
-// 导入定义的scss
-import variables from '@/styles/variables.scss';
+
 
 </script>
 

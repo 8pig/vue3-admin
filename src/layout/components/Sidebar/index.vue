@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="logo-container">
-      <el-avatar size="large" shape="square" src="/logo.png" fit="contain" />
+      <el-avatar size="large" shape="square" src="/logo.png" fit="contain" style="background: none;" />
       <h1 v-show="$store.getters.sidebarOpened" class="logo-title">
         vue3Admin
       </h1>
