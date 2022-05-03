@@ -1,8 +1,9 @@
 # vue3-admin
-> 最近需备考  暂停更新  4/16日后继续完善更新
+
 ## 开发中...
 
 ## 教程（重要）
+
 在docs下有项目需要注意的技术点， 有详细的思路说明。
 
 ### 技术栈
@@ -35,11 +36,15 @@
 ### API文档
 
 - docs有详细文档
-- 下载apiFox
-- 导入分享链接
-- 加入项目， 查看mock服务即可
 
-`链接：https://www.apifox.cn/apidoc/shared-046f1da5-869e-47e5-8ed2-1e2492db1e42 访问密码：GitHub 8pig`
+### 本地开发 & Mock
+
+* 下载安装apifox
+* 导入根目录`vue3-admin.apifox.json`
+* 查看 apifox 右上角环境变量 `Mock服务`
+* 复制前置URL
+* 修改 `vue.config.js`下的`proxy` 地址 即可
+  * 本项目Mock前置URL为 `http://127.0.0.1:4523/mock/611454`
 
 ### Customize configuration
 
