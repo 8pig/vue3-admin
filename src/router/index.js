@@ -2,104 +2,18 @@ import {
   createRouter,
   createWebHashHistory
 } from 'vue-router';
-import Layout from '@/layout';
+// import Layout from '@/layout';
+import Article from '@/router/modules/Article';
+import UserManage from '@/router/modules/UserManage';
+import RoleList from '@/router/modules/RoleList';
+import PermissionList from '@/router/modules/PermissionList';
+import ArticleCreate from '@/router/modules/ArticleCreate';
 
-const privateRoutes = [
-  {
-    path: '/user',
-    component: Layout,
-    redirect: '/user/manage',
-    meta: {
-      title: 'user',
-      icon: 'personnel'
-    },
-    children: [
-      {
-        path: '/user/manage',
-        component: () => import('@/views/user-manage/index'),
-        meta: {
-          title: 'userManage',
-          icon: 'personnel-manage'
-        }
-      },
-      {
-        path: '/user/role',
-        component: () => import('@/views/role-list/index'),
-        meta: {
-          title: 'roleList',
-          icon: 'role'
-        }
-      },
-      {
-        path: '/user/permission',
-        component: () => import('@/views/permission-list/index'),
-        meta: {
-          title: 'permissionList',
-          icon: 'permission'
-        }
-      },
-      {
-        path: '/user/info/:id',
-        name: 'userInfo',
-        component: () => import('@/views/user-info/index'),
-        meta: {
-          title: 'userInfo'
-        }
-      },
-      {
-        path: '/user/import',
-        name: 'import',
-        component: () => import('@/views/import/index'),
-        meta: {
-          title: 'excelImport'
-        }
-      }
-    ]
-  },
-  {
-    path: '/article',
-    component: Layout,
-    redirect: '/article/ranking',
-    meta: {
-      title: 'article',
-      icon: 'article'
-    },
-    children: [
-      {
-        path: '/article/ranking',
-        component: () => import('@/views/article-ranking/index'),
-        meta: {
-          title: 'articleRanking',
-          icon: 'article-ranking'
-        }
-      },
-      {
-        path: '/article/:id',
-        component: () => import('@/views/article-detail/index'),
-        meta: {
-          title: 'articleDetail'
-        }
-      },
-      {
-        path: '/article/create',
-        component: () => import('@/views/article-create/index'),
-        meta: {
-          title: 'articleCreate',
-          icon: 'article-create'
-        }
-      },
-      {
-        path: '/article/editor/:id',
-        component: () => import('@/views/article-create/index'),
-        meta: {
-          title: 'articleEditor'
-        }
-      }
-    ]
-  }
+export const privateRoutes = [
+  Article, UserManage, RoleList, PermissionList, ArticleCreate
 ];
-const publicRoutes = [
-
+console.warn(privateRoutes);
+export const publicRoutes = [
   {
     path: '/login',
     name: 'login',
@@ -136,7 +50,7 @@ const publicRoutes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes: [...publicRoutes, ...privateRoutes]
+  routes: [...publicRoutes]
 });
 
 export default router;

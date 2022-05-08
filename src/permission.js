@@ -19,7 +19,15 @@ router.beforeEach(async (to, from, next) => {
     } else {
       // 是否获取到 用户信息， 如果不存在则获取，
       if (!store.getters.hasUserInfo) {
-        await store.dispatch('user/getUserInfo');
+        /* 接口返回的字段中有permission 字段 为权限路由标志  可F12 查看返回*/
+        const { permission } = await store.dispatch('user/getUserInfo');
+        // 处理用户权限
+        const filterRoutes = await store.dispatch('permission/filterRoutes', permission.menus);
+        filterRoutes.forEach(item => {
+          router.addRoute(item);
+        });
+        // 添加完成路由后 需要主动跳转
+        return next(to.path);
       }
       next();
     }

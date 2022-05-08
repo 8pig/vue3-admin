@@ -12,7 +12,7 @@ files.keys().forEach(path => {
     ...module
   };
 });
-// console.error(modules);
+console.error(modules, '123');
 export default createStore({
   modules,
   getters
