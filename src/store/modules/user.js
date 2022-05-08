@@ -50,7 +50,8 @@ export default {
       this.commit('user/setToken', '');
       this.commit('user/setUserInfo', {});
       storage.removeAll();
-      router.push('/login');
+      window.location.reload();
+      // router.push('/login');
     }
   }
 };
