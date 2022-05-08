@@ -39,6 +39,7 @@
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "svg-sprite-loader": "^6.0.9",
+    "compression-webpack-plugin": "^4.0.0",
     "vue-cli-plugin-element-plus": "~0.0.13"
   },
   "gitHooks": {
