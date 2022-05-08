@@ -31,11 +31,13 @@
 
 - [gitee](https://gitee.com/yezhu_peiqi/vue3-admin)
 - [Github](https://github.com/8pig/Vue3-admin)
-- 迭代先在gitee同步, GitHub当日内更新.
 
 ### API文档
 
 - docs有详细文档
+- 账号问题
+  - admin权限 admin admin
+  - 测试权限 test test
 
 ### 本地开发 & Mock
 
