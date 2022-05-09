@@ -52,8 +52,8 @@ module.exports = {
               enforce: true
             },
             elementUI: {
-              name: 'chunk-elementui',
-              test: /[\\/]node_modules[\\/]element-ui[\\/]/,
+              name: 'chunk-element-plus',
+              test: /[\\/]node_modules[\\/]element-plus[\\/]/,
               chunks: 'all',
               priority: 3,
               reuseExistingChunk: true,
